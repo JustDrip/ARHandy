@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -11,6 +12,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
     /// If a raycast hits a trackable, the <see cref="placedPrefab"/> is instantiated
     /// and moved to the hit position.
     /// </summary>
+
     [RequireComponent(typeof(ARRaycastManager))]
     public class PlaceOnPlane : PressInputBase
     {
@@ -31,6 +33,16 @@ namespace UnityEngine.XR.ARFoundation.Samples
         /// The object instantiated as a result of a successful raycast intersection with a plane.
         /// </summary>
         public GameObject spawnedObject { get; private set; }
+        public GameObject spawnedObject1 { get; private set; }
+        public GameObject spawnedObject2 { get; private set; }
+        public GameObject spawnedObject3 { get; private set; }
+        public GameObject spawnedObject4 { get; private set; }
+        public GameObject spawnedObjectne1 { get; private set; }
+        public GameObject spawnedObjectne2 { get; private set; }
+        public GameObject spawnedObjectne3 { get; private set; }
+        public GameObject spawnedObjectne4 { get; private set; }
+
+
 
         bool m_Pressed;
 
@@ -53,14 +65,35 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 // Raycast hits are sorted by distance, so the first one
                 // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
+                Vector3 vec =  new Vector3 (hitPose.position.x,hitPose.position.y,hitPose.position.z);
+                
 
                 if (spawnedObject == null)
                 {
                     spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+                    spawnedObject1 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x + 0.25f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+                    spawnedObject2 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x + 0.5f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+                    spawnedObject3 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x + 0.75f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+                    spawnedObject4 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x + 1f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+                    spawnedObjectne1 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x - 0.25f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+                    spawnedObjectne2 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x - 0.5f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+                    spawnedObjectne3 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x - 0.75f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+                    spawnedObjectne4 = Instantiate(m_PlacedPrefab, new Vector3(hitPose.position.x - 1f, hitPose.position.y, hitPose.position.z), hitPose.rotation);
+
+                    
+
                 }
                 else
                 {
                     spawnedObject.transform.position = hitPose.position;
+                    spawnedObject1.transform.position = new Vector3(hitPose.position.x + 0.25f, hitPose.position.y, hitPose.position.z);
+                    spawnedObject2.transform.position = new Vector3(hitPose.position.x + 0.5f, hitPose.position.y, hitPose.position.z);
+                    spawnedObject3.transform.position = new Vector3(hitPose.position.x + 0.75f, hitPose.position.y, hitPose.position.z);
+                    spawnedObject4.transform.position = new Vector3(hitPose.position.x + 1f, hitPose.position.y, hitPose.position.z);
+                    spawnedObjectne1.transform.position = new Vector3(hitPose.position.x - 0.25f, hitPose.position.y, hitPose.position.z);
+                    spawnedObjectne2.transform.position = new Vector3(hitPose.position.x - 0.5f, hitPose.position.y, hitPose.position.z);
+                    spawnedObjectne3.transform.position = new Vector3(hitPose.position.x - 0.75f, hitPose.position.y, hitPose.position.z);
+                    spawnedObjectne4.transform.position = new Vector3(hitPose.position.x - 1f, hitPose.position.y, hitPose.position.z);
                 }
             }
         }

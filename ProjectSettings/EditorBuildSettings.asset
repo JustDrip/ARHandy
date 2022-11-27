@@ -104,7 +104,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ObjectTracking/ObjectTracking.unity
     guid: 8f797cefb98fe43109524cbbcc8faafc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PlaneDetection/MeineSzene.unity
     guid: 8252358a1e2ba7549a94df43aacec984
   - enabled: 0
@@ -128,9 +128,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DebugMenu.unity
     guid: 15456b85ccc6645c8825f7a70ae23ff1
-  - enabled: 1
-    path: Assets/Scenes/Camera/BackgroundRenderOrder/MeineSzene.unity
-    guid: dd6d3723894ae4618b821f1e99d0a4c7
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f8ce26fe3bc69499b9be4b2378e97a94,
       type: 2}
